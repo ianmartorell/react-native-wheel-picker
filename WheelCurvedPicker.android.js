@@ -12,7 +12,7 @@ import createReactClass from 'create-react-class';
 class WheelCurvedPicker extends React.Component {
 	constructor(props) {
 		super(props);
-		state = this._stateFromProps(props);
+		this.state = this._stateFromProps(props);
 	}
 
 	componentWillReceiveProps = (nextProps) => {
