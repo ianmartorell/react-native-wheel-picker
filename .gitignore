@@ -3,3 +3,4 @@ android/build
 android/.idea/workspace.xml
 android/.idea/copyright/profiles_settings.xml
 .gradle
+node_modules
