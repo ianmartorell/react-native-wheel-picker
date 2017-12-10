@@ -92,9 +92,11 @@ var AwesomeProject = React.createClass({
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
-        <Picker style={{width: 150, height: 180}}
-          selectedValue={this.state.selectedItem}
+        <Picker
+          style={{width: 150, height: 180}}
           itemStyle={{color:"white", fontSize:26}}
+          dividerColor="black"
+          selectedValue={this.state.selectedItem}
           onValueChange={(index) => this.onPickerSelect(index)}>
             {this.state.itemList.map((value, i) => (
               <PickerItem label={value} value={i} key={"money"+value}/>

@@ -87,6 +87,14 @@ public class ReactWheelCurvedPickerManager extends SimpleViewManager<ReactWheelC
         }
     }
 
+    @ReactProp(name="dividerColor", customType = "Color")
+    public void setdividerColor(ReactWheelCurvedPicker picker, Integer color){
+        if (picker != null) {
+            picker.setdividerColor(color);
+            picker.invalidate();
+        }
+    }
+
     @Override
     public String getName() {
         return REACT_CLASS;

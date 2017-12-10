@@ -62,11 +62,16 @@ WheelCurvedPicker.propTypes = {
 	onValueChange: PropTypes.func,
 	selectedValue: PropTypes.any,
 	selectedIndex: PropTypes.number,
+	dividerColor: ColorPropType,
 },
 
 WheelCurvedPicker.defaultProps = {
-	itemStyle: { color:"white", fontSize:26 },
+	itemStyle: {
+		color: 'white',
+		fontSize: 26,
+	},
 	itemSpace: 20,
+	dividerColor: 'black',
 };
 
 const WheelCurvedPickerNative = requireNativeComponent('WheelCurvedPicker', WheelCurvedPicker);

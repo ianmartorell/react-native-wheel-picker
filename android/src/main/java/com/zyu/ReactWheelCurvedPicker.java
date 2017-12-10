@@ -5,10 +5,7 @@ import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Shader;
-import android.os.SystemClock;
-import android.util.AttributeSet;
 
-import com.aigestudio.wheelpicker.core.AbstractWheelPicker;
 import com.aigestudio.wheelpicker.view.WheelCurvedPicker;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactContext;
@@ -27,6 +24,7 @@ public class ReactWheelCurvedPicker extends WheelCurvedPicker {
 
     private final EventDispatcher mEventDispatcher;
     private List<Integer> mValueData;
+    private int dividerColor;
 
     public ReactWheelCurvedPicker(ReactContext reactContext) {
         super(reactContext);
@@ -54,10 +52,10 @@ public class ReactWheelCurvedPicker extends WheelCurvedPicker {
     protected void drawForeground(Canvas canvas) {
         super.drawForeground(canvas);
 
+        int colorFrom = Color.TRANSPARENT;
+        int colorTo = dividerColor;
         Paint paint = new Paint();
-        paint.setColor(Color.WHITE);
-        int colorFrom = 0x00FFFFFF;//Color.BLACK;
-        int colorTo = Color.WHITE;
+        paint.setColor(colorTo);
         LinearGradient linearGradientShader = new LinearGradient(rectCurItem.left, rectCurItem.top, rectCurItem.right/2, rectCurItem.top, colorFrom, colorTo, Shader.TileMode.MIRROR);
         paint.setShader(linearGradientShader);
         canvas.drawLine(rectCurItem.left, rectCurItem.top, rectCurItem.right, rectCurItem.top, paint);
@@ -69,6 +67,10 @@ public class ReactWheelCurvedPicker extends WheelCurvedPicker {
         super.setItemIndex(index);
         unitDeltaTotal = 0;
 		mHandler.post(this);
+    }
+
+    public void setdividerColor(int dividerColor) {
+        this.dividerColor = dividerColor;
     }
 
     public void setValueData(List<Integer> data) {
